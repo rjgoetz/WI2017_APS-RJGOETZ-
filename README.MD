@@ -1,4 +1,4 @@
-# MCAD / APS IDM-6630 / SPRING 2017
+# MCAD / APS IDM-6515 / SPRING 2017
 
 ## Technologies:
 * PHP
