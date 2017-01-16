@@ -1,0 +1,52 @@
+body {
+  background: #EEE;
+  margin-top: 15px;
+}
+
+h1 {
+  font-family: Georgia, Times, 'Times New Roman', serif;
+}
+
+.lead {
+  margin-bottom: 30px;
+}
+
+fieldset {
+  border-top: 1px solid #EEE;
+  margin-top: 30px;
+  padding-top: 30px;
+}
+
+@media (min-width: 550px) {
+  .wrap {
+    padding: 0 10%;
+  }
+}
+
+@media (min-width: 768px) {
+  header {
+    padding-top: 15px;
+  }
+
+  header img {
+    max-height: 300px;
+  }
+
+  .thumbnail {
+    padding-bottom: 15px;
+  }
+
+  .wrap {
+    padding: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  header {
+      padding-bottom: 60px;
+  }
+
+  .wrap {
+    padding: 0 10%;
+  }
+}
