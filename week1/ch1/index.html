@@ -41,11 +41,10 @@
                     <p class="lead">Complete the form with your contact information and the type of car you are looking to purchase. Once we receive your preferences, we will match you with a car dealer in your area.</p>
                   </div>
 
-
                     <!-- begin form panel -->
                     <div class="panel panel-default">
                       <div class="panel-body">
-                        <form action="/" role="form" method="post">
+                        <form action="car-form.php" role="form" method="post">
                           <h3>Connect with a local car dealer.</h3>
                           <fieldset>
                             <div class="form-group">
@@ -53,25 +52,30 @@
                               <input class="form-control" type="text" id="brand" name="brand">
                             </div>
 
+                            <div class="form-group">
+                              <label for="color">Color</label>
+                              <input class="form-control" type="text" id="color" name="color">
+                            </div>
+
                             <p><strong>Car Category</strong></p>
                             <div class="checkbox">
                               <label>
-                                <input type="checkbox" value="Coupe" name="type1">2-Door Coupe
+                                <input type="checkbox" value="2-Door Coupe" name="type1">2-Door Coupe
                               </label>
                             </div>
                             <div class="checkbox">
                               <label>
-                                <input type="checkbox" value="Sedan" name="type3">4-Door Sedan
+                                <input type="checkbox" value="4-Door Sedan" name="type2">4-Door Sedan
                               </label>
                             </div>
                             <div class="checkbox">
                               <label>
-                                <input type="checkbox" value="Station Wagon" name="type2">5-Door Hatchback / Station Wagon
+                                <input type="checkbox" value="5-Door Hatchback / Station Wagon" name="type3">5-Door Hatchback / Station Wagon
                               </label>
                             </div>
                             <div class="checkbox">
                               <label>
-                                <input type="checkbox" value="SUV" name="type4">Sport Utility Vehicle (SUV)
+                                <input type="checkbox" value="Sport Utility Vehicle (SUV)" name="type4">Sport Utility Vehicle (SUV)
                               </label>
                             </div>
                             <div class="checkbox">
@@ -135,17 +139,17 @@
                             <div class="form-group">
                               <label for="price">Price Range</label>
                               <select name="price" id="price">
-                                <option value="9,999">$0 - $9,999</option>
-                                <option value="19,999">$10,000 - $19,999</option>
-                                <option value="29,999">$20,000 - $29,999</option>
-                                <option value="39,999">$30,000 - $39,999</option>
-                                <option value="49,999">$40,000 - $49,999</option>
-                                <option value="59,999">$50,000 - $59,999</option>
-                                <option value="69,999">$60,000 - $69,999</option>
-                                <option value="79,999">$70,000 - $79,999</option>
-                                <option value="89,999">$80,000 - $89,999</option>
-                                <option value="99,999">$90,000 - $99,999</option>
-                                <option value="100,000+">$100,000+</option>
+                                <option value="$0 - $9,999">$0 - $9,999</option>
+                                <option value="$10,000 - $19,999">$10,000 - $19,999</option>
+                                <option value="$20,000 - $29,999">$20,000 - $29,999</option>
+                                <option value="$30,000 - $39,999">$30,000 - $39,999</option>
+                                <option value="$40,000 - $49,999">$40,000 - $49,999</option>
+                                <option value="$50,000 - $59,999">$50,000 - $59,999</option>
+                                <option value="$60,000 - $69,999">$60,000 - $69,999</option>
+                                <option value="$70,000 - $79,999">$70,000 - $79,999</option>
+                                <option value="$80,000 - $89,999">$80,000 - $89,999</option>
+                                <option value="$90,000 - $99,999">$90,000 - $99,999</option>
+                                <option value="$100,000+">$100,000+</option>
                               </select>
                             </div>
                           </fieldset>
@@ -158,7 +162,7 @@
 
                             <div class="form-group">
                               <label for="email">Email</label>
-                              <input class="form-control" type="email" id="email" name="fullname">
+                              <input class="form-control" type="email" id="email" name="email">
                             </div>
 
                             <div class="form-group">
@@ -173,6 +177,7 @@
                       </div>
                     </div>
                     <!-- end form panel -->
+
                   </div>
                 </div>
               </div>

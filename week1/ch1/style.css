@@ -11,6 +11,10 @@ h1 {
   margin-bottom: 30px;
 }
 
+.output {
+  margin-bottom: 30px;
+}
+
 fieldset {
   border-top: 1px solid #EEE;
   margin-top: 30px;
