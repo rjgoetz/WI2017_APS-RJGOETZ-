@@ -14,8 +14,8 @@
         <nav>
           <ul class="nav nav-pills">
             <li role="presentation"><a href="index.html">Home</a></li>
-            <li role="presentation"><a href="email.html">Send Email</a></li>
-            <li role="presentation" class="active"><a href="remove.html">Unsubscribe</a></li>
+            <li role="presentation"><a href="send-email.php">Send Email</a></li>
+            <li role="presentation" class="active"><a href="remove-email.php">Unsubscribe</a></li>
           </ul>
         </nav>
       </div>
@@ -25,21 +25,39 @@
       </div>
 
       <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
-        <h1><i>Removed</i></h1>
+        <h1><i>Unsubscribe</i></h1>
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" role="form" method="post">
         <?php
-
           $dbc = mysqli_connect('localhost', 'root', 'root', 'audi_connect') or die('Error connecting to database');
 
-          $email = $_POST['email'];
+          if (isset($_POST['submit'])) {
+            foreach ($_POST['todelete'] as $delete_id) {
+              $query = "DELETE FROM email_list WHERE id=$delete_id";
+              mysqli_query($dbc, $query) or die('Error querying database');
+            }
 
-          $query = "DELETE FROM email_list WHERE email = '$email'";
-          mysqli_query($dbc, $query) or die('Error querying database');
+            echo '<p class="lead text-success"><em>Subscriber successfully removed.</em></p>';
+          }
 
-          echo '<p class="lead">You have been removed from our list: ' . $email . '</p>';
+          $query = "SELECT * FROM email_list";
+          $result = mysqli_query($dbc, $query);
+
+          while ($row = mysqli_fetch_array($result)) {
+        ?>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="<?php echo $row['id']; ?>" name="todelete[]"><?php echo $row['first_name'] . ' ' . $row['last_name'] . ', ' . $row['email']; ?>
+            </label>
+          </div>
+        <?php
+          }
 
           mysqli_close($dbc);
 
         ?>
+          <button class="pull-right btn btn-primary" name="submit" type="submit">Remove :(</button>
+
+        </form>
 
       </div>
     </div>

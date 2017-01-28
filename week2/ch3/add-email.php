@@ -14,8 +14,8 @@
         <nav>
           <ul class="nav nav-pills">
             <li role="presentation" class="active"><a href="index.html">Home</a></li>
-            <li role="presentation"><a href="email.html">Send Email</a></li>
-            <li role="presentation"><a href="remove.html">Unsubscribe</a></li>
+            <li role="presentation"><a href="send-email.php">Send Email</a></li>
+            <li role="presentation"><a href="remove-email.php">Unsubscribe</a></li>
           </ul>
         </nav>
       </div>

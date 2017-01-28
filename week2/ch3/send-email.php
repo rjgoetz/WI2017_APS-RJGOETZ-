@@ -14,8 +14,8 @@
         <nav>
           <ul class="nav nav-pills">
             <li role="presentation"><a href="index.html">Home</a></li>
-            <li role="presentation" class="active"><a href="email.html">Send Email</a></li>
-            <li role="presentation"><a href="remove.html">Unsubscribe</a></li>
+            <li role="presentation" class="active"><a href="send-email.php">Send Email</a></li>
+            <li role="presentation"><a href="remove-email.php">Unsubscribe</a></li>
           </ul>
         </nav>
       </div>
@@ -25,36 +25,77 @@
       </div>
 
       <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
-        <h1><em>Newsletter Sent</em></h1>
+
+        <h1><i>Send Email</i></h1>
+
+        <p class="lead"><b>Private: </b>For moderator use only.</p>
 
         <?php
-          $dbc = mysqli_connect('localhost', 'root', 'root', 'audi_connect') or die('Error connecting to database');
+          if (isset($_POST['submit'])) {
+            $from = 'rgoetz@mcad.edu';
+            $subject = $_POST['subject'];
+            $text = $_POST['message'];
+            $output_form = false;
 
-          $from = 'rgoetz@mcad.edu';
-          $subject = $_POST['subject'];
-          $text = $_POST['message'];
+            if (empty($subject) && empty($text)) {
+              echo '<h2 class="lead text-danger"><em>You forgot the email subject and body text!</em></h2>';
 
-          $query = 'SELECT * FROM email_list';
-          $result = mysqli_query($dbc, $query) or die('Error querying database');
+              $output_form = true;
+            } elseif (empty($subject)) {
+              echo '<h2 class="lead text-danger"><em>You forgot the email subject!</em></h2>';
 
-          while ($row = mysqli_fetch_array($result)) {
-            $first_name = $row['first_name'];
-            $last_name = $row['last_name'];
+              $output_form = true;
+            } elseif (empty($text)) {
+              echo '<h2 class="lead text-danger"><em>You forgot the body text!</em></h2>';
 
-            $msg = 'Dear ' . $first_name . ' '. $last_name . ',';
-            $msg .= '<br>' . $text;
+              $output_form = true;
+            } else {
+              $dbc = mysqli_connect('localhost', 'root', 'root', 'audi_connect') or die('Error connecting to database');
 
-            $to = $row['email'];
+              $query = 'SELECT * FROM email_list';
+              $result = mysqli_query($dbc, $query) or die('Error querying database');
 
-            echo $msg;
+              echo '<p class="lead text-success"><em>Newsletter Sent!</em></p>';
 
-            mail($to, $subject, $msg, 'From:' . $from);
+              while ($row = mysqli_fetch_array($result)) {
+                $first_name = $row['first_name'];
+                $last_name = $row['last_name'];
 
-            echo '<p>Email sent to: ' . $first_name . ' ' . $last_name . '</p>';
+                $msg = 'Dear ' . $first_name . ' '. $last_name . ',';
+                $msg .= '<br>' . $text;
+
+                $to = $row['email'];
+
+
+                mail($to, $subject, $msg, 'From:' . $from);
+
+                echo '<p>Email sent to: ' . $first_name . ' ' . $last_name . '</p>';
+              }
+
+              mysqli_close($dbc);
+            }
+
+          } else {
+            $output_form = true;
           }
 
-          mysqli_close($dbc);
+          if ($output_form) {
+        ?>
 
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" role="form" method="post">
+          <div class="form-group">
+            <label for="subject">Subject of Email</label>
+            <input class="form-control" type="text" id="subject" name="subject" value="<?php echo $subject; ?>">
+          </div>
+          <div class="form-group">
+            <label for="message">Body of Email</label>
+            <textarea class="form-control" type="text" id="message" name="message" rows="6"><?php echo $text; ?></textarea>
+          </div>
+          <button class="pull-right btn btn-primary" type="submit" name="submit">Send Email!</button>
+        </form>
+
+        <?php
+          }
         ?>
 
       </div>
