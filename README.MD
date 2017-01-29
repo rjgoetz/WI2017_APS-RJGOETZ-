@@ -1,11 +1,18 @@
 # MCAD / APS IDM-6515 / SPRING 2017
+## Babysit - Web Application
 
-## Technologies:
+### Technologies:
+* Google Fonts
+* Bootstrap
+* HTML5
+* CSS + SASS
+* JavaScript and JQuery
 * PHP
-* MySQL
-* WordPress
 * Laravel
+* MySQL
+* Heroku
+* Atom
+* Google Developer Tools
+* Terminal
 
-In this studio class, I plan to learn PHP and MySQL by walking through the "Head First PHP & MySQL" book. Then, I would like to dabble with WordPress customization and learning the Laravel framework. As a potential capstone project, I would like to create a "Babysit" application that helps connect parents and babysitters in their area.
-
-
+In this studio class, I plan to learn PHP and MySQL by walking through the "Head First PHP & MySQL" book. Then I will dedicate a couple weeks for learning the Laravel framework. As a capstone project, I would like to create a "Babysit" application that helps connect parents with babysitters in their area.
