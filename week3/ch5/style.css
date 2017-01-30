@@ -1,0 +1,25 @@
+body {
+  margin-top: 15px;
+}
+
+header {
+  border: 1px solid #000;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 30px;
+}
+
+section {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+img {
+  margin-bottom: 15px;
+}
+
+.votes {
+  background-color: #337ab7;
+  color: white;
+  padding: 5px;
+}
