@@ -18,8 +18,29 @@ img {
   margin-bottom: 15px;
 }
 
+.margin-top {
+  margin-top: 30px;
+}
+
 .votes {
-  background-color: #337ab7;
   color: white;
   padding: 5px;
+}
+
+.votes form {
+  display: inline-block;
+}
+
+.relative {
+  position: relative;
+}
+
+.top-ten {
+  background-color: #337ab7;
+  box-shadow: 0 2px 4px #333;
+  color: white;
+  padding: 12px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
