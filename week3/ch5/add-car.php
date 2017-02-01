@@ -13,83 +13,90 @@
       <div class="col-xs-12">
         <header>
           <h1><a href="index.php">Top Cars</a></h1>
+          <p class="lead">Add a car to the Top Cars list.</p>
+        </header>
+      </div>
+    </div>
 
-          <?php
-            require_once '_includes/vars.php';
+<?php
+  require_once '_includes/vars.php';
 
-            $submitted = isset($_POST['submit']);
+  $submitted = isset($_POST['submit']);
 
-            if ($submitted) {
-              $name = $_POST['name'];
-              $car = $_POST['car'];
-              $vote = $_POST['vote'];
-              $image_name = $_FILES['image']['name'];
-              $image_target = GW_UPLOADPATH . $image_name;
+  if ($submitted) {
+    $name = $_POST['name'];
+    $car = $_POST['car'];
+    $vote = $_POST['vote'];
+    $image_name = $_FILES['image']['name'];
+    $image_target = GW_UPLOADPATH . $image_name;
+    $image_type = $_FILES['image']['type'];
+    $image_size = $_FILES['image']['size'];
 
-              if (!empty($name) && !empty($car) && !empty($_FILES['image']['size'])) {
-                $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    if (!empty($name) && !empty($car) && !empty($image_name)) {
 
-                $add_car_query = "INSERT INTO car_table (date, name, car, image, votes) VALUES (now(), '$name', '$car', '$image_name', '$vote')";
+      // check files type and size
+      if ($image_type == 'image/jpeg' || $image_type == 'image/pjpeg' || $image_type == 'image/png' || $image_type == 'image/gif' && $image_size > 0 && $image_size <= GW_MAXFILESIZE) {
 
-                mysqli_query($dbc, $add_car_query) or die('Add car failed.');
+        // check file upload error
+        if ($_FILES['image']['error'] == 0) {
+          $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-                $fetch_date_query = "SELECT * FROM car_table ORDER BY id DESC LIMIT 1";
+          $add_car_query = "INSERT INTO car_table (date, name, car, image, votes) VALUES (now(), '$name', '$car', '$image_name', '$vote')";
 
-                $date = mysqli_query($dbc, $fetch_date_query) or die('Fetch date failed.');
+          mysqli_query($dbc, $add_car_query) or die('Add car failed.');
 
-                // move image to img folder
-                move_uploaded_file($_FILES['image']['tmp_name'], $image_target);
+          $fetch_date_query = "SELECT * FROM car_table ORDER BY id DESC LIMIT 1";
 
-                mysqli_close($dbc);
+          $date = mysqli_query($dbc, $fetch_date_query) or die('Fetch date failed.');
+
+          // move image to img folder
+          move_uploaded_file($_FILES['image']['tmp_name'], $image_target);
+
+          mysqli_close($dbc);
           ?>
 
-          <p class="lead">Thanks for adding your Top Car!</p>
-        </header>
-      </div>
-    </div>
+          <section>
+            <div class="row">
+              <div class="col-xs-12">
+                <img src="<?php echo $image_target; ?>" alt="<?php echo $image_name; ?>" class="img-responsive">
+              </div>
+              <div class="col-xs-12">
+                <p class="lead"><b><?php echo $car; ?></b></p>
+                <p><b>Submitted By:</b> <?php echo $name; ?></p>
+                <p><b>Date:</b>
+                  <?php
+                    while ($row = mysqli_fetch_array($date)) {
+                      echo $row['date'];
+                    }
+                  ?>
+                </p>
 
-    <section>
-      <div class="row">
-        <div class="col-xs-12">
-          <img src="<?php echo $image_target; ?>" alt="<?php echo $image_name; ?>" class="img-responsive">
-        </div>
-        <div class="col-xs-12">
-          <p class="lead"><b><?php echo $car; ?></b></p>
-          <p><b>Submitted By:</b> <?php echo $name; ?></p>
-          <p><b>Date:</b>
-            <?php
-              while ($row = mysqli_fetch_array($date)) {
-                echo $row['date'];
-              }
-            ?>
-          </p>
+                <p class="margin-top"><a href="index.php" class="btn btn-primary"><< Back to Top Cars</a></p>
+              </div>
+            </div>
+          </section>
 
-          <p class="margin-top"><a href="index.php" class="btn btn-primary"><< Back to Top Cars</a></p>
-        </div>
-      </div>
-    </section>
-
-      <?php
-        } else { // if input fields are empty
-      ?>
-          <p class="lead">Add a car to the Top Cars list.</p>
-        </header>
-      </div>
-    </div>
-      <?php
-            echo '<p class="lead text-danger">Please complete all of the fields.</p>';
-            include '_includes/car-form.php';
-          }
-        } else { // if form is not submitted yet
-      ?>
-          <p class="lead">Add a car to the Top Cars list.</p>
-        </header>
-      </div>
-    </div>
-    <?php
+          <?php
+        } else { // file upload failed
+          echo '<p class="lead text-danger">File failed to upload. Try again.</p>';
+          include '_includes/car-form.php';
+        }
+      } else { // file type or size invalid
+        echo '<p class="lead text-danger">File type or size invalid (max 250kb)</p>';
         include '_includes/car-form.php';
       }
-    ?>
+
+      // try to delete temporary image file
+      @unlink($_FILES['image']['tmp_name']);
+      
+    } else { // field incomplete
+      echo '<p class="lead text-danger">Please complete all of the fields.</p>';
+      include '_includes/car-form.php';
+    }
+  } else { // not submitted
+    include '_includes/car-form.php';
+  }
+?>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
