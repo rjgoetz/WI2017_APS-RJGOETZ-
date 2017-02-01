@@ -41,7 +41,7 @@
         if ($_FILES['image']['error'] == 0) {
           $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-          $add_car_query = "INSERT INTO car_table (date, name, car, image, votes) VALUES (now(), '$name', '$car', '$image_name', '$vote')";
+          $add_car_query = "INSERT INTO car_table (date, name, car, image, votes, approved) VALUES (now(), '$name', '$car', '$image_name', '$vote', 0)";
 
           mysqli_query($dbc, $add_car_query) or die('Add car failed.');
 
@@ -88,7 +88,7 @@
 
       // try to delete temporary image file
       @unlink($_FILES['image']['tmp_name']);
-      
+
     } else { // field incomplete
       echo '<p class="lead text-danger">Please complete all of the fields.</p>';
       include '_includes/car-form.php';

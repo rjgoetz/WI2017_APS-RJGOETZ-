@@ -37,7 +37,7 @@
             mysqli_query($dbc, $update_vote) or die('Vote update failed.');
           }
 
-          $get_cars = "SELECT * FROM car_table ORDER BY votes DESC, date ASC";
+          $get_cars = "SELECT * FROM car_table WHERE approved=1 ORDER BY votes DESC, date ASC";
 
           $data = mysqli_query($dbc, $get_cars) or die('Query cars failed.');
 

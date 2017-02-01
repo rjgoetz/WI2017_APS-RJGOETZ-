@@ -34,20 +34,18 @@
         $image = $_GET['image'];
         $id = $_GET['id'];
 
-        $delete_car = "DELETE FROM car_table WHERE id=" . $_POST['id'] . " LIMIT 1";
+        $approve_car = "UPDATE car_table SET approved=1 WHERE id=" . $_POST['id'] . " LIMIT 1";
 
         if ($submitted) {
-          mysqli_query($dbc, $delete_car) or die('Problem with query!');
+          mysqli_query($dbc, $approve_car) or die('Problem with query!');
 
-          echo '<p class="lead">The car "' . $_POST['car'] . '" has been removed.</p>';
+          echo '<p class="lead">The car "' . $_POST['car'] . '" has been approved.</p>';
           echo '<a href="admin.php"><< Back to Admin Console</a>';
-
-          @unlink(GW_UPLOADPATH . $_POST['image']);
 
           mysqli_close($dbc);
         } else {
       ?>
-      <h3 class="margin-bottom">Are you sure you want to delete this car?</h3>
+      <h3 class="margin-bottom">Are you sure you want to approve this car?</h3>
       <div class="row">
         <div class="col-xs-4">
           <div class="thumbnail">
@@ -57,11 +55,11 @@
               <p><b>Date: </b><?php echo $_GET['date']; ?></b></p>
               <p><b>Votes: </b><?php echo $_GET['votes']; ?></p>
 
-              <form action="remove-car.php" method="post" role="form">
+              <form action="approve-car.php" method="post" role="form">
                 <input type="hidden" name="id" value="<?php echo $id; ?>">
                 <input type="hidden" name="image" value="<?php echo $image; ?>">
                 <input type="hidden" name="car" value="<?php echo $car; ?>">
-                <button type="submit" class="btn btn-danger" name="submit">Remove</button>
+                <button type="submit" class="btn btn-danger" name="submit">Approve</button>
               </form>
             </div>
           </div>

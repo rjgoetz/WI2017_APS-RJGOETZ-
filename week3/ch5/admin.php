@@ -1,3 +1,7 @@
+<?php
+  require_once('_includes/authorization.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,6 +53,11 @@
                     <p><b>Date: </b><?php echo $row['date']; ?></b></p>
                     <p><b>Votes: </b><?php echo $row['votes']; ?></p>
                     <a href="<?php echo 'remove-car.php?id=' . $row['id'] . '&amp;name=' . $row['name'] . '&amp;car=' . $row['car'] . '&amp;date=' . $row['date'] . '&amp;votes=' . $row['votes'] . '&amp;image=' . $row['image']; ?>" type="submit" class="btn btn-default">Remove</a>
+                    <?php
+                      if ($row['approved'] == 0) {
+                        echo "<a href=\"approve-car.php?id=" . $row['id'] . "&amp;name=" . $row['name'] . "&amp;car=" . $row['car'] . "&amp;date=" . $row['date'] . "&amp;votes=" . $row['votes'] . "&amp;image=" . $row['image'] . "\" type=\"submit\" class=\"btn btn-danger\">Approve</a>";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
