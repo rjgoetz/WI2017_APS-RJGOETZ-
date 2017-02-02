@@ -65,6 +65,9 @@
               </form>
             </div>
           </div>
+
+          <a href="admin.php"><< Back to Admin page</a>
+
         </div>
       </div>
 

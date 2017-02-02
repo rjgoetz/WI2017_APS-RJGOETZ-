@@ -45,7 +45,7 @@
                 $counter++;
             ?>
 
-              <div class="col-xs-4">
+              <div class="col-xs-12 col-sm-4">
                 <div class="thumbnail">
                   <img src="<?php echo GW_UPLOADPATH . $row['image']; ?>" alt="<?php echo $row['image']; ?>" class="img-responsive">
                   <div class="caption">
@@ -64,7 +64,7 @@
 
             <?php
                 if ($counter % 3 == 0) {
-                  echo '<div class="clearfix visible-xs-block"></div>';
+                  echo '<div class="clearfix visible-sm-block"></div>';
                 }
               }
             ?>

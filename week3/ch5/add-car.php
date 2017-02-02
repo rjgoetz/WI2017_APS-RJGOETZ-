@@ -21,12 +21,13 @@
 <?php
   require_once '_includes/vars.php';
 
+  $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
   $submitted = isset($_POST['submit']);
 
   if ($submitted) {
-    $name = $_POST['name'];
-    $car = $_POST['car'];
-    $vote = $_POST['vote'];
+    $name = mysqli_real_escape_string($dbc, trim($_POST['name']));
+    $car = mysqli_real_escape_string($dbc, trim($_POST['car']));
     $image_name = $_FILES['image']['name'];
     $image_target = GW_UPLOADPATH . $image_name;
     $image_type = $_FILES['image']['type'];
@@ -39,9 +40,7 @@
 
         // check file upload error
         if ($_FILES['image']['error'] == 0) {
-          $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-
-          $add_car_query = "INSERT INTO car_table (date, name, car, image, votes, approved) VALUES (now(), '$name', '$car', '$image_name', '$vote', 0)";
+          $add_car_query = "INSERT INTO car_table (date, name, car, image) VALUES (now(), '$name', '$car', '$image_name')";
 
           mysqli_query($dbc, $add_car_query) or die('Add car failed.');
 
