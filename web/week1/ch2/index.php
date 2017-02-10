@@ -1,3 +1,5 @@
+<?php require_once('../../includes/env.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +9,19 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="<?php echo $path; ?>/style.css">
 </head>
 <body>
+  <header class="projects-header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+          <p><a href="<?php echo $path; ?>/"><< Advanced Projects Studio</a></p>
+        </div>
+      </div>
+    </div>
+  </header>
+
   <section>
     <div class="container">
       <div class="row">

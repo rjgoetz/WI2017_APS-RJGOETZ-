@@ -115,7 +115,7 @@
                           $to = 'rgoetz@mcad.edu';
                           $from = $email;
 
-                          mail($to, $subject, $msg, 'From: ' . $from);
+                          // mail($to, $subject, $msg, 'From: ' . $from);
                           ?>
                         </ul>
                         <a href="index.html" class="btn btn-primary">< Back</a>

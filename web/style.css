@@ -1,0 +1,23 @@
+body {
+  background-color: #efefef;
+}
+
+header {
+  margin-bottom: 30px;
+}
+
+section {
+  margin: 30px 0;
+}
+
+.projects-header {
+  background-color: #555;
+  -webkit-box-shadow: 0px 2px 7px 0px rgba(119,119,119,1);
+  -moz-box-shadow: 0px 2px 7px 0px rgba(119,119,119,1);
+  box-shadow: 0px 2px 7px 0px rgba(119,119,119,1);
+  margin: 0;
+}
+
+.projects-header a {
+  color: #FFF;
+}
