@@ -29,7 +29,7 @@
                       <div class="thumbnail">
                         <a href="week1/ch2"><img src="img/audi-s4.jpg" alt="Audi S4" class="img-responsive"></a>
                         <div class="caption">
-                          <h3>Car Locator</h3>
+                          <h3><a href="week1/ch2">Car Locator</a></h3>
                           <ul>
                             <li>A web form that sends your car preferences to local car dealers</li>
                             <li>First project to integrate a MySQL database</li>
