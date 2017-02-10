@@ -91,7 +91,7 @@
                           $car_features_str = implode(', ', $car_features);
 
                           // database connection
-                          // $dbc = mysqli_connect('localhost', 'root', 'root', 'advproj') or die('Error connecting to MySQL server.');
+                          require_once('../../includes/connection.php');
 
                           // build query
                           $query = "INSERT INTO car_leads (full_name, email, brand, color, other, price, car_categories, car_features, comments) VALUES ('$fullname', '$email', '$brand', '$color', '$other', '$price', '$car_categories_str', '$car_features_str', '$comments')";
