@@ -18,6 +18,10 @@ section {
   margin: 0;
 }
 
+.projects-header p {
+  margin: 10px 0;
+}
+
 .projects-header a {
   color: #FFF;
 }
