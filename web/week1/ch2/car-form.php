@@ -93,6 +93,8 @@
                           // database connection
                           require_once('../../includes/connection.php');
 
+                          echo $dbc;
+
                           // build query
                           $query = "INSERT INTO car_leads (full_name, email, brand, color, other, price, car_categories, car_features, comments) VALUES ('$fullname', '$email', '$brand', '$color', '$other', '$price', '$car_categories_str', '$car_features_str', '$comments')";
 
