@@ -14,7 +14,7 @@
       <div class="caption">
         <h3><?php echo $obj->car ?></h3>
         <p><b>Owner: </b><?php echo $obj->name; ?></p>
-        <p><b>Location: </b><?php echo $obj->city . ', ' . $obj->state; ?></p>
+        <p><b>Location: </b><?php echo $obj->city . ', ' . $obj->state; ?></p><br>
         <p><a href="<?php echo $_SERVER['REQUEST_URI'] . '?controller=swapper&action=car&id=' . $obj->id; ?>" class="btn btn-default" role="button">View</a></p>
       </div>
     </div>

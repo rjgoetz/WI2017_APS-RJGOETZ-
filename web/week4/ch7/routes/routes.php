@@ -12,13 +12,23 @@ function call($controller, $action) {
       require_once('models/car.php');
       $controller = new CarController();
       break;
+    case 'login':
+      require_once('models/car.php');
+      $controller = new LoginController();
+      break;
+    case 'signup':
+      require_once('models/car.php');
+      $controller = new SignUpController();
+      break;
   }
 
   $controller->{$action}();
 }
 
 $controllers = array('home' => ['index', 'error'],
-                     'swapper' => ['car']);
+                     'swapper' => ['car'],
+                     'login' => ['index', 'auth'],
+                     'signup' => ['index', 'signup']);
 
 if (array_key_exists($controller, $controllers)) {
   if (in_array($action, $controllers[$controller])) {

@@ -1,10 +1,6 @@
 <?php
 
-$env = 'production';
-
-if ($env === 'production') {
-  $path = '/WI2017_APS-RJGOETZ-/week4/ch7/';
-}
+require_once('../../includes/env.php');
 
 if (isset($_GET['controller']) && isset($_GET['action'])) {
   $controller = $_GET['controller'];
