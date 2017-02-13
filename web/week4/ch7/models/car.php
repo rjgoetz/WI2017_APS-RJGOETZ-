@@ -71,7 +71,7 @@ class Car {
     mysqli_close($dbc);
 
     if ($row) {
-      return true;
+      return $row;
     } else {
       return false;
     }
