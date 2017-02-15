@@ -1,4 +1,4 @@
-<section>
+<div>
   <h1><small class="text-primary">Meet the Car Swappers</small></h1>
 
   <div class="row">
@@ -29,4 +29,4 @@
   }
   ?>
   </div>
-</section>
+</div>

@@ -2,7 +2,9 @@
 
 class SignUpController {
   public function index() {
+    require_once('views/header.php');
     require_once('views/signup_view.php');
+    require_once('views/footers.php');
   }
 
   public function signup() {

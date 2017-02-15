@@ -27,7 +27,7 @@ function call($controller, $action) {
 
 $controllers = array('home' => ['index', 'error'],
                      'swapper' => ['car'],
-                     'login' => ['index', 'auth'],
+                     'login' => ['index', 'auth', 'logout'],
                      'signup' => ['index', 'signup']);
 
 if (array_key_exists($controller, $controllers)) {
