@@ -33,8 +33,8 @@ class SignUpController {
 
             Car::signup($_POST['email'], $_POST['password'], $_POST['name'], $_POST['car'], $_POST['city'], $_POST['state'], $image_name);
 
-            echo '<p class="alert alert-success">You have successfully signed up at Car Swap!</p>';
-            return call('signup', 'index');
+            // redirect to login page
+            header('Location: index.php?controller=login&action=index&msg=signup');
 
           } else {
             echo '<p class="alert alert-danger">Error uploading image.</p>';

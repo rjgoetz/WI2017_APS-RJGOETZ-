@@ -14,6 +14,8 @@ class LoginController {
         echo '<p class="alert alert-success">You are logged out.</p>';
       } elseif ($msg === 'incomplete') {
         echo '<p class="alert alert-danger">Please complete all fields.</p>';
+      } elseif ($msg === 'signup') {
+        echo '<p class="alert alert-success">You have successfully signed up! Please log in.</p>';
       }
     }
 
