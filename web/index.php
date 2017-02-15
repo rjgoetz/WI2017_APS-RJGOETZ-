@@ -27,7 +27,7 @@
                   <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-4">
                       <div class="thumbnail">
-                        <a href="week1/ch2"><img src="img/2004_Carrera-4s.jpg" alt="2004 Carrera 4s" class="img-responsive"></a>
+                        <a href="week1/ch2"><img src="img/2004_Carrera-4s.jpg" alt="2004 Carrera 4s"></a>
                         <div class="caption">
                           <h3><a href="week1/ch2">Car Locator</a></h3>
                           <ul>
@@ -35,6 +35,20 @@
                             <li>First project to integrate a MySQL database</li>
                           </ul>
                           <a href="week1/ch2" class="btn btn-default">View >></a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                      <div class="thumbnail">
+                        <a href="week2/ch3"><img src="img/audi-s4.jpg" alt="Audi S4"></a>
+                        <div class="caption">
+                          <h3><a href="week2/ch3">Audi Connect</a></h3>
+                          <ul>
+                            <li>A web form that sends your car preferences to local car dealers</li>
+                            <li>First project to integrate a MySQL database</li>
+                          </ul>
+                          <a href="week2/ch3" class="btn btn-default">View >></a>
                         </div>
                       </div>
                     </div>
