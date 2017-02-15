@@ -1,3 +1,5 @@
+<?php require_once('../../includes/env.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,39 +7,49 @@
   <title>Top Cars</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="<?php echo $path; ?>/global.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <header>
-          <h1><a href="index.php">Top Cars</a></h1>
-          <p class="lead">Welcome car enthusiasts!</p>
-          <p>Check out this Top Cars List. If your car didn't make the list <a href="add-car.php">add it here >></a></p>
-        </header>
+  <header class="projects-header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+          <p><a href="<?php echo $path; ?>/"><< Advanced Projects Studio</a></p>
+        </div>
       </div>
     </div>
+  </header>
 
-    <section>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <header>
+            <h1><a href="index.php">Top Cars</a></h1>
+            <p class="lead">Welcome car enthusiasts!</p>
+            <p>Check out this Top Cars List. If your car didn't make the list <a href="add-car.php">add it here >></a></p>
+          </header>
+        </div>
+      </div>
+
       <div class="row">
         <?php
           require_once '_includes/vars.php';
-
-          $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+          require_once '../../includes/connection.php';
 
           $count = 0;
           $top_ten = 0;
           $car_id = $_POST['id'];
           $new_vote = $_POST['vote'];
-          $update_vote = "UPDATE car_table SET votes=$new_vote WHERE id=$car_id";
+          $update_vote = "UPDATE top_cars SET votes=$new_vote WHERE id=$car_id";
 
           if (!empty($car_id) && !empty($new_vote)) {
             mysqli_query($dbc, $update_vote) or die('Vote update failed.');
           }
 
-          $get_cars = "SELECT * FROM car_table WHERE approved=1 ORDER BY votes DESC, date ASC";
+          $get_cars = "SELECT * FROM top_cars WHERE approved=1 ORDER BY votes DESC, date ASC";
 
           $data = mysqli_query($dbc, $get_cars) or die('Query cars failed.');
 
@@ -84,9 +96,19 @@
           }
         ?>
       </div>
-    </section>
 
-  </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <p><a href="admin.php">Admin Console >></a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

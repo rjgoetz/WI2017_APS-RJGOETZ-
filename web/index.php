@@ -54,6 +54,32 @@
                         </div>
                       </div>
                     </div>
+
+                    <div class="clearfix visible-sm-block"></div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                      <div class="thumbnail">
+                        <a href="week3/ch5"><img src="img/eagle_talon.jpg" alt="Eagle Talon"></a>
+                        <div class="caption">
+                          <h3><a href="week3/ch5">Top Cars</a></h3>
+                          <ul>
+                            <li>Upload and vote for your favorite car</li>
+                            <li>Admin screens for image approval and removal</li>
+                            <li>PHP authentication</li>
+                            <li>Require function for code organization</li>
+                            <li>Move_uploaded_file and @unlink functions</li>
+                            <li>PHP constants: define()</li>
+                            <li>$_SERVER, $_POST, $_GET, and $_FILES superglobals</li>
+                            <li>Form enctype="multipart/form-data"</li>
+                            <li>SQL UPDATE, INSERT, and ORDER BY</li>
+                          </ul>
+                          <a href="week3/ch5" class="btn btn-default">View >></a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="clearfix visible-md-block"></div>
+
                   </div>
                 </div>
               </div>

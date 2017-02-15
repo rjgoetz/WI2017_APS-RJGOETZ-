@@ -12,6 +12,7 @@ section {
 
 .projects-header {
   background-color: #555;
+  border: none;
   -webkit-box-shadow: 0px 2px 7px 0px rgba(119,119,119,1);
   -moz-box-shadow: 0px 2px 7px 0px rgba(119,119,119,1);
   box-shadow: 0px 2px 7px 0px rgba(119,119,119,1);

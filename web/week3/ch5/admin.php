@@ -1,4 +1,5 @@
 <?php
+  require_once('../../includes/env.php');
   require_once('_includes/authorization.php');
 ?>
 
@@ -9,36 +10,46 @@
   <title>Top Cars</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="<?php echo $path; ?>/global.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <header>
-          <h1><a href="index.php">Top Cars</a></h1>
-          <p class="lead">Admin Page</p>
-        </header>
+  <header class="projects-header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+          <p><a href="<?php echo $path; ?>/"><< Advanced Projects Studio</a></p>
+        </div>
       </div>
     </div>
+  </header>
 
-    <section>
-      <h3 class="margin-bottom">Cars Users List</h3>
+  <section>
+    <div class="container">
       <div class="row">
-        <?php
-          require_once '_includes/vars.php';
-
-          $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-          $counter = 0;
-
-          // get cars from database
-          $get_cars = "SELECT * FROM car_table";
-          $data = mysqli_query($dbc, $get_cars);
-
-          mysqli_close($dbc);
-        ?>
         <div class="col-xs-12">
+          <header>
+            <h1><a href="index.php">Top Cars</a></h1>
+            <p class="lead">Admin Page</p>
+          </header>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <h3 class="margin-bottom">Cars Users List</h3>
+          <?php
+            require '_includes/vars.php';
+            require '../../includes/connection.php';
+            $counter = 0;
+
+            // get cars from database
+            $get_cars = "SELECT * FROM top_cars";
+            $data = mysqli_query($dbc, $get_cars);
+
+            mysqli_close($dbc);
+          ?>
+
           <div class="row">
             <?php
               while ($row = mysqli_fetch_array($data)) {
@@ -71,9 +82,18 @@
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </div>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <p><a href="index.php"><< Back to Top Cars</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
