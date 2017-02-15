@@ -33,7 +33,7 @@
             <header>
               <div class="row">
                 <div class="col-xs-12 col-sm-5 col-sm-push-6">
-                  <img src="audi-s4.jpg" alt="Audi S4" class="pull-right img-responsive">
+                  <img src="2004_carrera-4s.jpg" alt="2004 Carrera 4s" class="pull-right img-responsive">
                 </div>
                 <div class="col-xs-12 col-sm-5 col-sm-pull-4">
                   <div class="caption">

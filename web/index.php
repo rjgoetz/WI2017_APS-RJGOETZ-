@@ -27,7 +27,7 @@
                   <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-4">
                       <div class="thumbnail">
-                        <a href="week1/ch2"><img src="img/audi-s4.jpg" alt="Audi S4" class="img-responsive"></a>
+                        <a href="week1/ch2"><img src="img/2004_Carrera-4s.jpg" alt="2004 Carrera 4s" class="img-responsive"></a>
                         <div class="caption">
                           <h3><a href="week1/ch2">Car Locator</a></h3>
                           <ul>
