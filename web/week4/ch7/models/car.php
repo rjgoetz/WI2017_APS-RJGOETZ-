@@ -7,15 +7,17 @@ class Car {
   public $date;
   public $car;
   public $name;
+  public $email;
   public $city;
   public $state;
   public $picture;
 
-  public function __construct($id, $date, $car, $name, $city, $state, $picture) {
+  public function __construct($id, $date, $car, $name, $email, $city, $state, $picture) {
     $this->id = $id;
     $this->date = $date;
     $this->car = $car;
     $this->name = $name;
+    $this->email = $email;
     $this->city = $city;
     $this->state = $state;
     $this->picture = $picture;
@@ -30,7 +32,7 @@ class Car {
 
     // create output of Car objects from DB
     while ($row = mysqli_fetch_array($data)) {
-      $list[] = new Car($row['user_id'], $row['date'], $row['car'], $row['name'], $row['city'], $row['state'], $row['picture']);
+      $list[] = new Car($row['user_id'], $row['date'], $row['car'], $row['name'], $row['email'], $row['city'], $row['state'], $row['picture']);
     }
 
     mysqli_close($dbc);
@@ -56,7 +58,7 @@ class Car {
 
     mysqli_close($dbc);
 
-    $car = new Car($row['user_id'], $row['date'], $row['car'], $row['name'], $row['city'], $row['state'], $row['picture']);
+    $car = new Car($row['user_id'], $row['date'], $row['car'], $row['name'], $row['email'], $row['city'], $row['state'], $row['picture']);
 
     return $car;
   }

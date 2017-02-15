@@ -35,9 +35,16 @@
                   <li class="navbar-text">
                     <?php
                     if (isset($_COOKIE['name'])) {
-                      echo $_COOKIE['name'];
+                      echo 'Hello, ' . $_COOKIE['name'];
                     } else {
                       echo 'Hello, Guest';
+                    }
+                    ?>
+                  </li>
+                  <li>
+                    <?php
+                    if (isset($_COOKIE['name'])) {
+                      echo '<a href="index.php?controller=profile&action=index&id=' . $_COOKIE['user_id'] . '">My Profile</a>';
                     }
                     ?>
                   </li>
