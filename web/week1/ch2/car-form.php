@@ -143,7 +143,7 @@
                           $to = $email;
                           $from = $email;
 
-                          mail($to, $subject, $msg, 'From: ' . $from);
+                          // mail($to, $subject, $msg, 'From: ' . $from);
                           ?>
                         </ul>
                         <a href="index.php" class="btn btn-primary">< Back</a>
