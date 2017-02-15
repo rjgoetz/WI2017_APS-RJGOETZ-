@@ -38,7 +38,7 @@
                 <div class="col-xs-12 col-sm-5 col-sm-pull-4">
                   <div class="caption">
                     <div class="page-header">
-                      <h1 class="text-primary">Car Locator</h1>
+                      <h1 class="text-primary"><a href="index.php">Car Locator</a></h1>
                       <p class="lead"><i>Find Your Next Car</i></p>
                     </div>
                   </div>
@@ -140,13 +140,13 @@
                           $msg .= "Comments: $comments";
 
                           $subject = 'Car Locator Form';
-                          $to = 'rgoetz@mcad.edu';
+                          $to = $email;
                           $from = $email;
 
-                          // mail($to, $subject, $msg, 'From: ' . $from);
+                          mail($to, $subject, $msg, 'From: ' . $from);
                           ?>
                         </ul>
-                        <a href="index.html" class="btn btn-primary">< Back</a>
+                        <a href="index.php" class="btn btn-primary">< Back</a>
                       </div>
                     </div>
                     <!-- end form panel -->

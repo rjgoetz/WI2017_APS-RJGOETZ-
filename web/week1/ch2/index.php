@@ -38,7 +38,7 @@
                 <div class="col-xs-12 col-sm-5 col-sm-pull-4">
                   <div class="caption">
                     <div class="page-header">
-                      <h1 class="text-primary">Car Locator</h1>
+                      <h1 class="text-primary"><a href="index.php">Car Locator</a></h1>
                       <p class="lead"><i>Find Your Next Car</i></p>
                     </div>
                   </div>
@@ -131,11 +131,6 @@
                             <div class="checkbox">
                               <label>
                                 <input type="checkbox" value="Luxury" name="feature6">Luxury
-                              </label>
-                            </div>
-                            <div class="checkbox">
-                              <label>
-                                <input type="checkbox" value="Truck" name="feature7">Truck
                               </label>
                             </div>
                             <div class="checkbox">
