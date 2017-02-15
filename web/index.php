@@ -80,6 +80,25 @@
 
                     <div class="clearfix visible-md-block"></div>
 
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                      <div class="thumbnail">
+                        <a href="week4/ch7"><img src="img/ford_aerostar_xlt_blue_1990_a.jpg" alt="Ford Aerostar"></a>
+                        <div class="caption">
+                          <h3><a href="week4/ch7">Car Swap!</a></h3>
+                          <ul>
+                            <li>Sign up to swap your car with other car swappers</li>
+                            <li>First project with MVC structure</li>
+                            <li>Authentication by web form for better UX</li>
+                            <li>SHA encryption</li>
+
+                          </ul>
+                          <a href="week4/ch7" class="btn btn-default">View >></a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="clearfix visible-sm-block"></div>
+
                   </div>
                 </div>
               </div>
