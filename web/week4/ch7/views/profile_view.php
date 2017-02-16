@@ -1,17 +1,16 @@
 <section>
-  <h1><small class="text-primary">My Profile</small></h1>
 
   <div class="row">
+    <div class="col-xs-12">
+      <img class="img-responsive" src="public/img/<?php echo $car->picture; ?>" alt="<?php echo $car->car; ?>">
+    </div>
+
     <div class="col-xs-12 col-xs-6">
-      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" role="form" method="post">
+      <h2>My Profile</h2>
+      <form action="<?php echo $_SERVER['PHP_SELF']; ?>?controller=profile&amp;action=profile&amp;id=<?php echo $car->id; ?>" role="form" method="post" encytype="multipart/form-data">
         <div class="form-group">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" class="form-control" value="<?php echo $car->name; ?>">
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" class="form-control" value="<?php echo $car->email; ?>">
         </div>
 
         <div class="form-group">
@@ -80,25 +79,39 @@
           <input type="text" id="car" name="car" class="form-control" value="<?php echo $car->car; ?>">
         </div>
 
-
-        <button type="submit" class="btn btn-default">Update</button>
+        <br>
+        <button type="submit" class="btn btn-default" name="submit">Update</button>
       </form>
-
     </div>
+
+    <div class="col-xs-12 col-xs-6">
+      <h2>Login Credentials</h2>
+      <form action="<?php echo $_SERVER['PHP_SELF']; ?>?controller=profile&amp;action=credentials&amp;id=<?php echo $car->id; ?>" method="post" role="form">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input class="form-control" type="email" name="email" value="<?php echo $car->email; ?>">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Current Password</label>
+          <input class="form-control" type="password" name="password">
+        </div>
+
+        <div class="form-group">
+          <label for="newpass">New Password</label>
+          <input class="form-control" type="password" name="newpass">
+        </div>
+
+        <div class="form-group">
+          <label for="password2">Confirm Password</label>
+          <input class="form-control" type="password" name="password2">
+        </div>
+
+        <br>
+        <button type="submit" name="submit" class="btn btn-default">Update</button>
+      </form>
+    </div>
+
   </div>
 
-  <!-- <div class="row">
-    <div class="col-xs-12 col-xs-6">
-      <div class="thumbnail">
-        <img src="<?php echo 'public/img/' . $car->picture; ?>" alt="<?php echo $car->car; ?>" class="img-responsive">
-        <div class="caption">
-          <h2><?php echo $car->car; ?></h2>
-          <p><b>Owner: </b><?php echo $car->name; ?></p>
-          <p><b>Joined: </b><?php echo $car->date; ?></p>
-          <p><b>Location: </b><?php echo $car->city . ', ' . $car->state; ?></p><br>
-          <button type="submit" class="btn btn-default">Contact ></button>
-        </div>
-      </div>
-    </div>
-  </div> -->
 </section>

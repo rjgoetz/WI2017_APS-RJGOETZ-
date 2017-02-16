@@ -33,7 +33,7 @@ $controllers = array('home' => ['index', 'error'],
                      'swapper' => ['car'],
                      'login' => ['index', 'auth', 'logout'],
                      'signup' => ['index', 'signup'],
-                     'profile' => ['index']);
+                     'profile' => ['index', 'credentials', 'profile']);
 
 if (array_key_exists($controller, $controllers)) {
   if (in_array($action, $controllers[$controller])) {
