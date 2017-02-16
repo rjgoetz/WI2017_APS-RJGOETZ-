@@ -31,6 +31,7 @@
                         <div class="caption">
                           <h3><a href="week1/ch2">Car Locator</a></h3>
                           <ul>
+                            <li>Week 1 // Chapters 1 and 2</li>
                             <li>A web form that sends your car preferences to local car dealers</li>
                             <li>First project to integrate a MySQL database</li>
                           </ul>
@@ -45,6 +46,7 @@
                         <div class="caption">
                           <h3><a href="week2/ch3">Audi Connect</a></h3>
                           <ul>
+                            <li>Week 2 // Chapters 3 and 4</li>
                             <li>Sign up for the Audi Connect newsletter</li>
                             <li>Send email to subscribers</li>
                             <li>Remove subscribers from newsletter</li>
@@ -63,6 +65,7 @@
                         <div class="caption">
                           <h3><a href="week3/ch5">Top Cars</a></h3>
                           <ul>
+                            <li>Week 3 // Chapters 5 and 6</li>
                             <li>Upload and vote for your favorite car</li>
                             <li>Admin screens for image approval and removal</li>
                             <li>PHP authentication</li>
@@ -86,11 +89,13 @@
                         <div class="caption">
                           <h3><a href="week4/ch7">Car Swap!</a></h3>
                           <ul>
-                            <li>Sign up to swap your car with other car swappers</li>
+                            <li>Week 4 // Chapter 7</li>
+                            <li>Sign up on Car Swap! and swap your car with other car swappers</li>
                             <li>First project with MVC structure</li>
                             <li>Authentication by web form for better UX</li>
                             <li>SHA encryption</li>
-
+                            <li>Cookies and Session variables for log in persistence</li>
+                            <li>Form messages (success, fail, etc.)</li>
                           </ul>
                           <a href="week4/ch7" class="btn btn-default">View >></a>
                         </div>
