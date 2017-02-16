@@ -35,6 +35,10 @@ class LoginController {
         $_SESSION['user_id'] = $auth['user_id'];
         $_SESSION['name'] = $auth['name'];
 
+        // set cookies
+        setcookie('user_id', $auth['user_id'], time() + 30*24*60*60);
+        setcookie('name', $auth['name'], time() + 30*24*60*60);
+
         // redirect to index
         header('Location: index.php?controller=home&action=index&msg=login');
         exit;
@@ -51,6 +55,10 @@ class LoginController {
       // end session
       session_destroy();
       $_SESSION = array();
+
+      // delete cookies
+      setcookie('user_id', '', time() - 3600);
+      setcookie('name', '', time() - 3600);
 
       // redirect to log in screen
       header('Location: index.php?controller=login&action=index&msg=logout');
