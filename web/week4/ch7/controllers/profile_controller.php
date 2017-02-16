@@ -31,6 +31,10 @@ class ProfileController {
 
       Car::update_profile($_GET['id'], $_POST['name'], $_POST['city'], $_POST['state'], $_POST['car']);
 
+      // reset session and cookies variables
+      $_SESSION['name'] = $_POST['name'];
+      setcookie('name', $_POST['name'], time() + 30*24*60*60);
+
       header('Location: index.php?controller=profile&action=index&id=' . $_GET['id'] . '&msg=success');
 
     } else {
