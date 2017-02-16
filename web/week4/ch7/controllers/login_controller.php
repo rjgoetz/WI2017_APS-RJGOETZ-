@@ -39,6 +39,9 @@ class LoginController {
         setcookie('user_id', $auth['user_id'], time() + 30*24*60*60);
         setcookie('name', $auth['name'], time() + 30*24*60*60);
 
+        // create blank questionaire data
+        Survey::initialize();
+
         // redirect to index
         header('Location: index.php?controller=home&action=index&msg=login');
         exit;

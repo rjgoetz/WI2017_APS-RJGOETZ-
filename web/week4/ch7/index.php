@@ -15,4 +15,3 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
 }
 
 require_once('routes/routes.php');
-// require_once('views/layout.php');

@@ -14,6 +14,7 @@ function call($controller, $action) {
       break;
     case 'login':
       require_once('models/car.php');
+      require_once('models/response.php');
       $controller = new LoginController();
       break;
     case 'signup':
@@ -24,6 +25,10 @@ function call($controller, $action) {
       require_once('models/car.php');
       $controller = new ProfileController();
       break;
+    case 'survey':
+      require_once('models/survey.php');
+      $controller = new SurveyController();
+      break;
   }
 
   $controller->{$action}();
@@ -33,7 +38,8 @@ $controllers = array('home' => ['index', 'error'],
                      'swapper' => ['car'],
                      'login' => ['index', 'auth', 'logout'],
                      'signup' => ['index', 'signup'],
-                     'profile' => ['index', 'credentials', 'profile']);
+                     'profile' => ['index', 'credentials', 'profile'],
+                     'survey' => ['index']);
 
 if (array_key_exists($controller, $controllers)) {
   if (in_array($action, $controllers[$controller])) {

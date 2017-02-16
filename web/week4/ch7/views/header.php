@@ -48,6 +48,13 @@
                     }
                     ?>
                   </li>
+                  <li>
+                    <?php
+                    if (isset($_SESSION['name'])) {
+                      echo '<a href="index.php?controller=survey&action=index&id=' . $_SESSION['user_id'] . '">Survey</a>';
+                    }
+                    ?>
+                  </li>
                   <?php
                   if (isset($_SESSION['name'])) {
                     echo '<a class="btn btn-default navbar-btn"';
