@@ -31,8 +31,6 @@ class ProfileController {
 
       Car::update_profile($_GET['id'], $_POST['name'], $_POST['city'], $_POST['state'], $_POST['car']);
 
-      setcookie('name', $_POST['name']);
-
       header('Location: index.php?controller=profile&action=index&id=' . $_GET['id'] . '&msg=success');
 
     } else {

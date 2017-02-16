@@ -31,12 +31,13 @@ class LoginController {
       // check email / password combination
       $auth = Car::login($_POST['email'], $_POST['password']);
       if ($auth) {
-        // set cookies before header
-        setcookie('name', $auth['name']);
-        setcookie('user_id', strval($auth['user_id']));
+        // set session variables
+        $_SESSION['user_id'] = $auth['user_id'];
+        $_SESSION['name'] = $auth['name'];
 
         // redirect to index
         header('Location: index.php?controller=home&action=index&msg=login');
+        exit;
 
       } else {
         // redirect to index
@@ -46,10 +47,10 @@ class LoginController {
   }
 
   public function logout() {
-    if (isset($_COOKIE['user_id'])) {
-      // set cookies to negative time
-      setcookie('name', $auth['name'], time() - 3600);
-      setcookie('user_id', strval($auth['user_id']), time() - 3600);
+    if (isset($_SESSION['user_id'])) {
+      // end session
+      session_destroy();
+      $_SESSION = array();
 
       // redirect to log in screen
       header('Location: index.php?controller=login&action=index&msg=logout');

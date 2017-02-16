@@ -34,8 +34,8 @@
                 <ul class="nav navbar-nav pull-right">
                   <li class="navbar-text">
                     <?php
-                    if (isset($_COOKIE['name'])) {
-                      echo 'Hello, ' . $_COOKIE['name'];
+                    if (isset($_SESSION['name'])) {
+                      echo 'Hello, ' . $_SESSION['name'];
                     } else {
                       echo 'Hello, Guest';
                     }
@@ -43,13 +43,13 @@
                   </li>
                   <li>
                     <?php
-                    if (isset($_COOKIE['name'])) {
-                      echo '<a href="index.php?controller=profile&action=index&id=' . $_COOKIE['user_id'] . '">My Profile</a>';
+                    if (isset($_SESSION['name'])) {
+                      echo '<a href="index.php?controller=profile&action=index&id=' . $_SESSION['user_id'] . '">My Profile</a>';
                     }
                     ?>
                   </li>
                   <?php
-                  if (isset($_COOKIE['name'])) {
+                  if (isset($_SESSION['name'])) {
                     echo '<a class="btn btn-default navbar-btn"';
                     echo 'href="' . $_SERVER['PHP_SELF'] . '?controller=login&action=logout">Log Out</a>';
                   } else {

@@ -9,7 +9,7 @@ class HomeController {
       $msg = $_GET['msg'];
 
       if ($msg === 'login') {
-        echo '<p id="disappear" class="alert alert-success">You successfully logged in ' . $_COOKIE['name'] . '!</p>';
+        echo '<p id="disappear" class="alert alert-success">You successfully logged in ' . $_SESSION['name'] . '!</p>';
       }
     }
 
