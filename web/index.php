@@ -96,6 +96,8 @@
                             <li>SHA encryption</li>
                             <li>Cookies and Session variables for log in persistence</li>
                             <li>Form messages (success, fail, etc.)</li>
+                            <li>Database Normalization</li>
+                            <li>SQL Aliases, INNER JOIN, AS, ON, USING</li>
                           </ul>
                           <a href="week4/ch7" class="btn btn-default">View >></a>
                         </div>

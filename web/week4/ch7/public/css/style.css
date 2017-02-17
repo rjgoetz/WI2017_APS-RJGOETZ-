@@ -18,3 +18,9 @@ footer {
   color: #337ab7;
   text-decoration: underline;
 }
+
+.survey-category {
+  border-bottom: 1px solid black;
+  margin-top: 1em;
+  padding-bottom: 1em;
+}

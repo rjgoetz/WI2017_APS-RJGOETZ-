@@ -4,14 +4,14 @@ class Survey {
 
   // define public attributes
   public $response_id;
-  public $name;
-  public $category;
+  public $topic_name;
+  public $category_name;
   public $response;
 
-  public function __construct($response_id, $name, $category, $response) {
+  public function __construct($response_id, $topic_name, $category_name, $response) {
     $this->response_id = $response_id;
-    $this->name = $name;
-    $this->category = $category;
+    $this->topic_name = $topic_name;
+    $this->category_name = $category_name;
     $this->response = $response;
   }
 
@@ -28,7 +28,7 @@ class Survey {
       if (mysqli_num_rows($data) == 0) {
 
         // grab topics from topic table
-        $query = "SELECT * FROM carswap_topic ORDER BY category, topic_id";
+        $query = "SELECT * FROM carswap_topic ORDER BY category_id, topic_id";
         $data = mysqli_query($dbc, $query) or die('Topics not found.');
 
         // create array of topics
@@ -52,22 +52,18 @@ class Survey {
   public static function all() {
     require('../../includes/connection.php');
 
-    // get a list of responses from user
-    $query = "SELECT * FROM carswap_response WHERE user_id='" . $_SESSION['user_id'] . "'";
+    // query database for list of responses from user
+    $query = "SELECT cr.response_id, cr.response, ct.name AS topic_name, cc.name AS category_name FROM carswap_response AS cr INNER JOIN carswap_topic AS ct USING (topic_id) INNER JOIN carswap_category AS cc USING (category_id) WHERE user_id='" . $_SESSION['user_id'] . "'";
 
     $data = mysqli_query($dbc, $query) or die('No responses found in database.');
 
-    // build survey question objects
-    $list = [];
+    $responses = [];
 
     while ($row = mysqli_fetch_array($data)) {
-      $query2 = "SELECT * FROM carswap_topic WHERE topic_id='" . $row['topic_id'] . "'";
-      $data2 = mysqli_query($dbc, $query2) or die('No topics found in database.');
-      $row2 = mysqli_fetch_array($data2);
-      $list[] = new Survey($row['response_id'], $row2['name'], $row2['category'], $row['response']);
+      $responses[] = new Survey($row['response_id'], $row['topic_name'], $row['category_name'], $row['response']);
     }
 
-    return $list;
+    return $responses;
   }
 
 
