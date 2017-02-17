@@ -29,6 +29,11 @@ function call($controller, $action) {
       require_once('models/survey.php');
       $controller = new SurveyController();
       break;
+    case 'match':
+      require_once('models/survey.php');
+      require_once('models/car.php');
+      $controller = new MatchController();
+      break;
   }
 
   $controller->{$action}();
@@ -39,7 +44,8 @@ $controllers = array('home' => ['index', 'error'],
                      'login' => ['index', 'auth', 'logout'],
                      'signup' => ['index', 'signup'],
                      'profile' => ['index', 'credentials', 'profile'],
-                     'survey' => ['index']);
+                     'survey' => ['index'],
+                     'match' => ['index']);
 
 if (array_key_exists($controller, $controllers)) {
   if (in_array($action, $controllers[$controller])) {

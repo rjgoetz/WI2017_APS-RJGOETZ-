@@ -55,6 +55,13 @@
                     }
                     ?>
                   </li>
+                  <li>
+                    <?php
+                    if (isset($_SESSION['name'])) {
+                      echo '<a href="index.php?controller=match&action=index&id=' . $_SESSION['user_id'] . '">My Match</a>';
+                    }
+                    ?>
+                  </li>
                   <?php
                   if (isset($_SESSION['name'])) {
                     echo '<a class="btn btn-default navbar-btn"';

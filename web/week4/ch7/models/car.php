@@ -50,7 +50,7 @@ class Car {
   }
 
   public static function find($id) {
-    require_once('../../includes/connection.php');
+    require('../../includes/connection.php');
 
     $query = "SELECT * FROM car_swap WHERE user_id='$id'";
     $data = mysqli_query($dbc, $query) or die('<p>SQL query failed.</p>');
