@@ -4,14 +4,14 @@ class Survey {
 
   // define public attributes
   public $response_id;
-  public $topic_name;
-  public $topic_category;
+  public $name;
+  public $category;
   public $response;
 
-  public function __construct($response_id, $topic_name, $topic_category, $response) {
+  public function __construct($response_id, $name, $category, $response) {
     $this->response_id = $response_id;
-    $this->user_id = $topic_name;
-    $this->topic_id = $topic_category;
+    $this->name = $name;
+    $this->category = $category;
     $this->response = $response;
   }
 
@@ -61,9 +61,10 @@ class Survey {
     $list = [];
 
     while ($row = mysqli_fetch_array($data)) {
-      $query = "SELECT * FROM carswap_topic WHERE topic_id=" . $row['topic_id'] . "'";
-      $data2 = mysqli_query($dbc, $query);
-      $list[] = new Survey($row['response_id'], $data2['topic_name'], $data2['topic_category'], $row['response']);
+      $query2 = "SELECT * FROM carswap_topic WHERE topic_id='" . $row['topic_id'] . "'";
+      $data2 = mysqli_query($dbc, $query2) or die('No topics found in database.');
+      $row2 = mysqli_fetch_array($data2);
+      $list[] = new Survey($row['response_id'], $row2['name'], $row2['category'], $row['response']);
     }
 
     return $list;
@@ -71,13 +72,16 @@ class Survey {
 
 
   // update response data
-  public static function respond() {
+  public static function update() {
     require('../../includes/connection.php');
 
+    // loop through $_POST global and update database
+    foreach ($_POST as $key=>$value) {
+      $query = "UPDATE carswap_response SET response='$value' WHERE response_id='$key'";
+      mysqli_query($dbc, $query) or die('Update responses failed.');
+    }
 
-
-
-
+    mysqli_close($dbc);
 
   }
 
