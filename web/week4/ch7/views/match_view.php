@@ -30,7 +30,7 @@
         <div class="col-xs-12">
           <p class="lead text-primary">The topics you match on:</p>
       <?php
-        foreach ($my_match['topic_name'] as $topic) {
+        foreach ($my_match[0]['topic_name'] as $topic) {
       ?>
 
         <p><b><?php echo $topic; ?></b></p>

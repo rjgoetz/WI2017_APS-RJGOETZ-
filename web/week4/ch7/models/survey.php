@@ -91,7 +91,7 @@ class Survey {
     $user_score = 0;
     $car_swappers = array();
     $match_array = array();
-    $my_match_id = 0;
+    $my_match = array();
 
     // 1. get logged-in user's responses from database
     $query = "SELECT cr.response_id, cr.topic_id, cr.response, ct.name AS topic_name FROM carswap_response AS cr INNER JOIN carswap_topic AS ct USING (topic_id) WHERE user_id='" . $_SESSION['user_id'] . "'";
@@ -145,27 +145,12 @@ class Survey {
 
       mysqli_close($dbc);
 
-      // 6. Find my match by highest score sorted by id
-      for ($l = 0; $l < count($match_array); $l++) {
-        if ($match_array[$l]['score'] > $match_array[$l-1]['score']) {
-          $my_match_id = $match_array[$l]['user_id'];
-        } elseif ($match_array[$l]['score'] == $match_array[$l-1]['score']) {
-          if ($match_array[$l]['user_id'] > $match_array[$l-1]['user_id']) {
-            $my_match_id = $match_array[$l]['user_id'];
-          } else {
-            $my_match_id = $match_array[$l-1]['user-id'];
-          }
-        }
-      }
+      // 6. Return highest score from match_array
+      arsort($match_array);
 
-      // 7. Populate my_match_data array
-      foreach ($match_array as $user) {
-        if ($user['user_id'] == $my_match_id) {
-          return $user;
-        }
-      }
+      $match_array = array_slice($match_array, 0, 1);
 
-      // return $match_array;
+      return $match_array;
 
     } else {
       mysqli_close($dbc);
