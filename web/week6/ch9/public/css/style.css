@@ -6,6 +6,10 @@ main {
   margin-top: 15px;
 }
 
+section {
+  margin-top: 15px;
+}
+
 .well {
   padding: 60px 0;
 }
@@ -14,4 +18,25 @@ main {
   border-bottom: 1px solid #eee;
   margin-bottom: 1.4em;
   padding-bottom: 1.4em;
+}
+
+.pagination {
+  margin: 0;
+}
+
+.pagination p, ul, li {
+  display: inline-block;
+}
+
+.pagination ul {
+  padding-left: 0;
+}
+
+.pagination li {
+  margin-left: 0.5em;
+}
+
+.pagination a {
+  display: block;
+  padding: 0 0.5em;
 }

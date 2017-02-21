@@ -25,20 +25,67 @@ class Job {
   }
 
   // find jobs that match search terms
-  public static function find($search) {
+  public static function find($search, $sort, $order, $page) {
     require('../../includes/connection.php');
 
-    $query = "SELECT * FROM developer_jobs WHERE title LIKE '%$search%' OR description LIKE '%$search%'";
-    $data = mysqli_query($dbc, $query) or die('Search database failed.');
+    // table columns to search
+    $columns = ['title', 'description'];
+
+    // sanitize search string
+    $search = str_replace(',', ' ', $search);
+    $search_terms = explode(' ', $search);
+    $final_terms = array();
+
+    if (count($search_terms) > 0) {
+      foreach ($search_terms as $term) {
+        if (!empty($term)) {
+          $final_terms[] = $term;
+        }
+      }
+    }
+
+    // build query
+    $search_query = "SELECT * FROM developer_jobs";
+    $where_list = array();
+
+    foreach ($columns as $key=>$column) {
+      foreach($final_terms as $term) {
+        $where_list[] = "$column LIKE '%$term%'";
+      }
+    }
+
+    $where_clause = implode(' OR ', $where_list);
+
+    if(!empty($where_clause)) {
+      $search_query .= " WHERE $where_clause";
+    }
+
+    if(!empty($sort) && !empty($order)) {
+      $search_query .= " ORDER BY $sort";
+      if ($order == 2) {
+        $search_query .= " DESC";
+      }
+    }
+
+    $limit = 3;
+    $page_interval = intval($page) * $limit - $limit;
+    $search_query .= " LIMIT $page_interval, $limit";
+
+    $data = mysqli_query($dbc, $search_query) or die('<p>Search database failed.</p>');
     $jobs = [];
 
     if (mysqli_num_rows($data) == 0) {
+
+      mysqli_close($dbc);
       return false;
+
     } else {
+
       while($row = mysqli_fetch_array($data)) {
-        $jobs[] = new Job($row['job_id'], $row['title'], $row['description'], $row['city'], $row['state'], $row['zip'], $row['company'], $row['date_posted']);
+        $jobs[] = new Job($row['job_id'], $row['title'], substr($row['description'], 0, 500) . '...', $row['city'], $row['state'], $row['zip'], $row['company'], $row['date_posted']);
       }
 
+      mysqli_close($dbc);
       return $jobs;
     }
 
