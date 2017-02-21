@@ -14,9 +14,9 @@ $query_string = '?controller=search&action=index&search=' . $_GET['search'] . '&
         <p><a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=home&action=index'; ?>"><< Back to Search</a></p>
       </div>
 
-      <?php if ($job->pages) {
+      <?php if ($jobs) {
       ?>
-        <div class="row">
+      <div class="row">
         <div class="col-xs-12 col-sm-3">
           <p><b><a href="
           <?php
@@ -55,8 +55,9 @@ $query_string = '?controller=search&action=index&search=' . $_GET['search'] . '&
       </div>
       <?php
       }
+      ?>
 
-      if ($jobs) {
+      <?php if ($jobs) {
         foreach($jobs as $job) {
       ?>
       <div class="job">
