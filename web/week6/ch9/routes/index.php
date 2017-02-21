@@ -9,6 +9,7 @@ function call($controller, $action) {
       $controller = new HomeController();
       break;
     case 'search':
+      require_once('models/job.php');
       $controller = new SearchController();
       break;
   }
