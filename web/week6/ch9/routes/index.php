@@ -8,13 +8,17 @@ function call($controller, $action) {
     case 'home':
       $controller = new HomeController();
       break;
+    case 'search':
+      $controller = new SearchController();
+      break;
   }
 
   $controller->{$action}();
 }
 
 
-$controllers = array('home' => ['index', 'error']);
+$controllers = array('home' => ['index', 'error'],
+                     'search' => ['index']);
 
 
 if (array_key_exists($controller, $controllers)) {

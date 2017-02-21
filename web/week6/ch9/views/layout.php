@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="public/css/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="<?php echo $path; ?>/global.css">
-  <link rel="stylesheet" href="<?php echo $path; ?>/week5/ch9/public/css/style.css">
+  <link rel="stylesheet" href="<?php echo $path; ?>/week6/ch9/public/css/style.css">
 </head>
 <body>
   <header class="projects-header">
@@ -27,9 +27,9 @@
       <div class="row">
         <div class="col-xs-12">
           <header class="page-header">
-            <h1><a href="<?php echo $path ?>/week5/ch9">Developer Jobs</a></h1>
+            <h1><a href="<?php echo $path ?>/week6/ch9">Developer Jobs</a></h1>
           </header>
-          <img class="img-responsive" src="<? echo $path; ?>/week5/ch9/public/img/dev-illustration.jpg" alt="developer illustration">
+          <img class="img-responsive" src="<? echo $path; ?>/week6/ch9/public/img/dev-illustration.jpg" alt="developer illustration">
         </div>
       </div>
 
