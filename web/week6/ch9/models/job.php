@@ -11,9 +11,10 @@ class Job {
   public $zip;
   public $company;
   public $date;
+  public $pages;
 
   // construct object
-  public function __construct($id, $title, $description, $city, $state, $zip, $company, $date) {
+  public function __construct($id, $title, $description, $city, $state, $zip, $company, $date, $pages) {
     $this->id = $id;
     $this->title = $title;
     $this->description = $description;
@@ -22,6 +23,7 @@ class Job {
     $this->zip = $zip;
     $this->company = $company;
     $this->date = $date;
+    $this->pages = $pages;
   }
 
   // find jobs that match search terms
@@ -67,7 +69,11 @@ class Job {
       }
     }
 
+    $data = mysqli_query($dbc, $search_query) or die('<p>Search for number of results failed.</p>');
+
     $limit = 3;
+    $pages = ceil(mysqli_num_rows($data))/$limit;
+
     $page_interval = intval($page) * $limit - $limit;
     $search_query .= " LIMIT $page_interval, $limit";
 
@@ -82,7 +88,7 @@ class Job {
     } else {
 
       while($row = mysqli_fetch_array($data)) {
-        $jobs[] = new Job($row['job_id'], $row['title'], substr($row['description'], 0, 500) . '...', $row['city'], $row['state'], $row['zip'], $row['company'], $row['date_posted']);
+        $jobs[] = new Job($row['job_id'], $row['title'], substr($row['description'], 0, 500) . '...', $row['city'], $row['state'], $row['zip'], $row['company'], $row['date_posted'], $pages);
       }
 
       mysqli_close($dbc);

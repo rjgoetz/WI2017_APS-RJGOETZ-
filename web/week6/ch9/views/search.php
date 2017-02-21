@@ -14,7 +14,9 @@ $query_string = '?controller=search&action=index&search=' . $_GET['search'] . '&
         <p><a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=home&action=index'; ?>"><< Back to Search</a></p>
       </div>
 
-      <div class="row">
+      <?php if ($job->pages) {
+      ?>
+        <div class="row">
         <div class="col-xs-12 col-sm-3">
           <p><b><a href="
           <?php
@@ -51,8 +53,9 @@ $query_string = '?controller=search&action=index&search=' . $_GET['search'] . '&
           ?>">Date Posted</a></b></p>
         </div>
       </div>
-
       <?php
+      }
+
       if ($jobs) {
         foreach($jobs as $job) {
       ?>
@@ -77,7 +80,7 @@ $query_string = '?controller=search&action=index&search=' . $_GET['search'] . '&
         }
       } else {
       ?>
-        <p>No jobs found.</p>
+        <p>Sorry, no jobs found.</p>
       <?php
       }
       ?>
@@ -85,11 +88,13 @@ $query_string = '?controller=search&action=index&search=' . $_GET['search'] . '&
       <div class="row">
         <div class="col-xs-12">
           <nav class="pagination">
-            <p><b>Pages</b></p>
+            <?php if ($job->pages) { echo '<p><b>Pages</b></p>:'; } ?>
             <ul>
-              <li><a href="<?php echo $_SERVER['PHP_SELF'] . $query_string . '&page=1'?>">1</a></li>
-              <li><a href="<?php echo $_SERVER['PHP_SELF'] . $query_string . '&page=2'?>">2</a></li>
-              <li><a href="<?php echo $_SERVER['PHP_SELF'] . $query_string . '&page=3'?>">3</a></li>
+              <?php
+                for ($i = 1; $i <= $job->pages; $i++) {
+                  echo '<li><a href="' . $_SERVER['PHP_SELF'] . $query_string . '&page=' . $i . '">' . $i . '</a></li>';
+                }
+              ?>
             </ul>
           </nav>
         </div>
