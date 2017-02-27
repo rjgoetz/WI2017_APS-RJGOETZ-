@@ -3,6 +3,7 @@
 class User {
 
   // initialize properties
+  public $userid;
   public $first_name;
   public $last_name;
   public $email;
@@ -10,7 +11,8 @@ class User {
   public $desired_job;
   public $resume;
 
-  public function __construct($first_name, $last_name, $email, $phone, $desired_job, $resume) {
+  public function __construct($userid, $first_name, $last_name, $email, $phone, $desired_job, $resume) {
+    $this->userid = $userid;
     $this->first_name = $first_name;
     $this->last_name = $last_name;
     $this->email = $email;
@@ -24,9 +26,8 @@ class User {
 
     $query = "INSERT INTO developer_jobs_users (first_name, last_name, email, phone, desired_job, resume) VALUES ('$first_name', '$last_name', '$email', '$phone', '$desired_job', '$resume')";
 
-    mysqli_query($dbc, $query) or die('<p>Users failed to be added to database.');
+    mysqli_query($dbc, $query) or die('<p>Users failed to be added to database.</p>');
 
     mysqli_close($dbc);
-
   }
 }

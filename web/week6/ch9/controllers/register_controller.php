@@ -35,6 +35,7 @@ class RegisterController {
               $user->create($first_name, $last_name, $email, $new_phone, $job, $resume);
 
               require_once('views/post.php');
+
             } else {
               echo '<p class="alert alert-danger">Please enter a valid email address.</p>';
               return call('register', 'index');
