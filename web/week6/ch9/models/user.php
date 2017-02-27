@@ -26,5 +26,7 @@ class User {
 
     mysqli_query($dbc, $query) or die('<p>Users failed to be added to database.');
 
+    mysqli_close($dbc);
+
   }
 }
