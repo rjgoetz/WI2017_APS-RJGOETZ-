@@ -30,7 +30,7 @@ class RegisterController {
             $domain = preg_replace('/[a-zA-Z0-9][a-zA-Z0-9\._\-&!?=#]*@/', "", $email);
 
             if (checkdnsrr($domain)) {
-              $user = new User();
+              $user = new User;
 
               $user->create($first_name, $last_name, $email, $new_phone, $job, $resume);
 

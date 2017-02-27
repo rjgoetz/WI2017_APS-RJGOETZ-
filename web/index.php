@@ -111,13 +111,15 @@
                         <a href="week6/ch9"><img src="img/dev-illustration.jpg" alt="development illustration"></a>
                         <div class="caption">
                           <h3><a href="week6/ch9">Developer Jobs</a></h3>
-                          <p><b>Week 6 // Chapter 9</b></p>
+                          <p><b>Week 6 // Chapter 9, 10</b></p>
                           <ul>
                             <li>Search for developer jobs</li>
+                            <li>Post resume</li>
                             <li>Manipulate strings with str_replace(), explode(), and implode()</li>
                             <li>Create custom functions</li>
                             <li>SQL LIKE, % wild card, and LIMIT</li>
                             <li>URL parameters to control page output</li>
+                            <li>Regular expressions, preg_match(), preg_replace(), checkdnsrr()</li>
                           </ul>
                           <a href="week6/ch9" class="btn btn-default">View >></a>
                         </div>
