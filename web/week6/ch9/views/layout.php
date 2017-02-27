@@ -26,8 +26,15 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
-          <header class="page-header">
-            <h1><a href="<?php echo $path ?>/week6/ch9">Developer Jobs</a></h1>
+          <header class="page-header clearfix">
+            <div class="row">
+              <div class="col-xs-10">
+                <h1><a href="<?php echo $path ?>/week6/ch9">Developer Jobs</a></h1>
+              </div>
+              <div class="col-xs-2">
+                <p class="register"><a href="<?php echo $path . '/week6/ch9/index.php?controller=register&action=index'; ?>">Register</a></p>
+              </div>
+            </div>
           </header>
           <img class="img-responsive" src="<? echo $path; ?>/week6/ch9/public/img/dev-illustration.jpg" alt="developer illustration">
         </div>

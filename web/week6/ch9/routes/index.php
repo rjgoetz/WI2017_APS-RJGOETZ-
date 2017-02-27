@@ -12,6 +12,10 @@ function call($controller, $action) {
       require_once('models/job.php');
       $controller = new SearchController();
       break;
+    case 'register':
+      require_once('models/user.php');
+      $controller = new RegisterController();
+      break;
   }
 
   $controller->{$action}();
@@ -19,7 +23,8 @@ function call($controller, $action) {
 
 
 $controllers = array('home' => ['index', 'error'],
-                     'search' => ['index']);
+                     'search' => ['index'],
+                     'register' => ['index', 'register']);
 
 
 if (array_key_exists($controller, $controllers)) {

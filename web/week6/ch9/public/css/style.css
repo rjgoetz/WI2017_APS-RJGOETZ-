@@ -20,6 +20,10 @@ section {
   padding-bottom: 1.4em;
 }
 
+.register {
+  margin-top: 38px;
+}
+
 .pagination {
   margin: 0;
 }
