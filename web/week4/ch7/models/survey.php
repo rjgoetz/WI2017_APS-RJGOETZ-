@@ -94,7 +94,8 @@ class Survey {
     $my_match = array();
 
     // 1. get logged-in user's responses from database
-    $query = "SELECT cr.response_id, cr.topic_id, cr.response, ct.name AS topic_name FROM carswap_response AS cr INNER JOIN carswap_topic AS ct USING (topic_id) WHERE user_id='" . $_SESSION['user_id'] . "'";
+
+    $query = "SELECT cr.response_id, cr.topic_id, cr.response, cc.name AS category_name, ct.name AS topic_name FROM carswap_response AS cr INNER JOIN carswap_topic AS ct USING (topic_id) INNER JOIN carswap_category AS cc USING (category_id) WHERE user_id='" . $_SESSION['user_id'] . "'";
 
     $data = mysqli_query($dbc, $query);
 
@@ -122,7 +123,7 @@ class Survey {
         $swapper_responses = array();
         $matched_responses = array();
 
-        $query3 = "SELECT cr.response_id, cr.topic_id, cr.response, ct.name AS topic_name FROM carswap_response AS cr INNER JOIN carswap_topic AS ct USING (topic_id) WHERE user_id='" . $car_swappers[$j]['user_id'] . "'";
+        $query3 = "SELECT cr.response_id, cr.topic_id, cr.response, cc.name AS category_name, ct.name AS topic_name FROM carswap_response AS cr INNER JOIN carswap_topic AS ct USING (topic_id) INNER JOIN carswap_category AS cc USING (category_id) WHERE user_id='" . $car_swappers[$j]['user_id'] . "'";
 
         $data3 = mysqli_query($dbc, $query3);
 
@@ -133,13 +134,13 @@ class Survey {
         // 5. loop through user and swapper topics and calculate match score
         for ($k = 0; $k < count($user_responses); $k++) {
           if ($user_responses[$k]['response'] + $swapper_responses[$k]['response'] == 2) {
-            array_push($matched_responses, $swapper_responses[$k]['topic_name']);
+            array_push($matched_responses, $swapper_responses[$k]['category_name']);
             $match_score++;
           }
         }
 
         // add match_score and user_id to array
-        array_push($match_array, array('score' => $match_score, 'user_id' => $car_swappers[$j]['user_id'], 'topic_name' => $matched_responses));
+        array_push($match_array, array('score' => $match_score, 'user_id' => $car_swappers[$j]['user_id'], 'category_name' => $matched_responses));
 
       } // end user loop
 

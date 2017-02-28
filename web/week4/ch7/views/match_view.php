@@ -30,15 +30,31 @@
       <div class="row">
         <div class="col-xs-12">
           <p class="lead text-primary">The topics you match on:</p>
+
       <?php
-        foreach ($my_match[0]['topic_name'] as $topic) {
+        $count = 1;
+        $category_count = array();
+        $length = count($my_match[0]['category_name']);
+        foreach ($my_match[0]['category_name'] as $key => $category) {
+          if ($key != 0) {
+            if ($category == $my_match[0]['category_name'][$key - 1]) {
+              $count++;
+            } elseif ($length - 1 == $key) {
+              echo 'here';
+              array_push($category_count, [$my_match[0]['category_name'][$key], $count]);
+            } else {
+              array_push($category_count, [$my_match[0]['category_name'][$key - 1], $count]);
+              $count = 1;
+            }
+          }
       ?>
 
-        <p><b><?php echo $topic; ?></b></p>
+        <p><b><?php echo $category; ?></b></p>
 
 
       <?php
         }
+        var_dump($category_count);
       }
       ?>
         </div>
