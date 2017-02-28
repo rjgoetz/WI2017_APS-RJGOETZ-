@@ -66,7 +66,7 @@
                   echo '<p class="lead top-ten">' . $top_ten . '</p>';
                 }
               ?>
-              <img class="img-responsive" src="<? echo GW_UPLOADPATH . $row['image']; ?>" alt="<?php $row['image']; ?>" class="img-responsive">
+              <img src="<? echo GW_UPLOADPATH . $row['image']; ?>" alt="<?php $row['image']; ?>">
               <div class="caption">
                 <p class="lead"><? echo $row['car']; ?></p>
                 <p><b>Votes: </b><?php echo $row['votes']; ?><br>

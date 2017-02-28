@@ -62,7 +62,7 @@
           <h3 class="margin-bottom">Are you sure you want to delete this car?</h3>
 
           <div class="row">
-            <div class="col-xs-4">
+            <div class="col-xs-12 col-sm-6">
               <div class="thumbnail">
                 <img src="<?php echo GW_UPLOADPATH . $image; ?>" alt="<?php echo $image; ?>">
                 <div class="caption">
