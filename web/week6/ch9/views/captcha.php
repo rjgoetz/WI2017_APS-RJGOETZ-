@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 // create captcha
 define('CAPTCHA_NUMCHARS', 6);
@@ -9,6 +10,9 @@ $pass_phrase = "";
 for ($i = 0; $i < CAPTCHA_NUMCHARS; $i++) {
   $pass_phrase .= chr(rand(97, 122));
 }
+
+// store encrypted pass-phrase in session
+$_SESSION['pass_phrase'] = sha1($pass_phrase);
 
 $img = imagecreatetruecolor(CAPTCHA_WIDTH, CAPTCHA_HEIGHT);
 
@@ -31,9 +35,9 @@ for ($i = 0; $i < 50; $i++) {
 }
 
 // draw pass-phrase string
-imagettftext($img, 18, 0, 35, CAPTCHA_HEIGHT - 12, $dk_grey, '../public/fonts/Courier New Bold.ttf', $pass_phrase);
+imagettftext($img, 18, 0, 33, CAPTCHA_HEIGHT - 12, $dk_grey, '../public/fonts/Courier New Bold.ttf', $pass_phrase);
 
 header("Content-type: image/png");
-imagepng($img);\
+imagepng($img);
 
 imagedestroy($img);

@@ -1,8 +1,5 @@
 <?php
 
-// Developer Jobs v1.0
-session_start();
-
 if (isset($_POST['submit'])) {
   $controller = $_POST['controller'];
   $action = $_POST['action'];

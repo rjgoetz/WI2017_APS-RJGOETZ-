@@ -30,12 +30,15 @@
             <div class="form-group">
               <label for="resume">Paste your resume here</label>
               <textarea class="form-control" name="resume" id="resume"></textarea>
+              <br>
             </div>
 
+            <img src="views/captcha.php" alt="Captcha Text">
+
             <div class="form-group">
-              <label for="captcha">Image</label>
-              <input type="text" id="captcha" name="captcha">
-              <img src="views/captcha.php" alt="Captcha Text">
+              <br>
+              <label for="verify">Verification</label>
+              <input class="form-control" placeholder="Please enter pass phrase" type="text" id="verify" name="verify">
             </div>
 
             <button type="submit" class="btn btn-primary" name="submitted">Submit</button>

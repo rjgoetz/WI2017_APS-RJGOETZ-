@@ -2,12 +2,12 @@
 
 class RegisterController {
 
-  public function index() {    
-
+  public function index() {
     require_once('views/register.php');
   }
 
   public function register() {
+    session_start();
 
     $first_name = $_POST['firstname'];
     $last_name = $_POST['lastname'];
@@ -15,6 +15,7 @@ class RegisterController {
     $phone = $_POST['phone'];
     $job = $_POST['job'];
     $resume = $_POST['resume'];
+    $verify = sha1($_POST['verify']);
 
     if (isset($_POST['submitted'])) {
 
@@ -32,9 +33,16 @@ class RegisterController {
 
             if (checkdnsrr($domain)) {
 
-              User::create($first_name, $last_name, $email, $new_phone, $job, $resume);
+              // check captcha
+              if ($_SESSION['pass_phrase'] == $verify) {
+                User::create($first_name, $last_name, $email, $new_phone, $job, $resume);
 
-              require_once('views/post.php');
+                require_once('views/post.php');
+
+              } else {
+                echo '<p class="alert alert-danger">Please enter the correct verification pass phrase.</p>';
+                return call('register', 'index');
+              }
 
             } else {
               echo '<p class="alert alert-danger">Please enter a valid email address.</p>';
