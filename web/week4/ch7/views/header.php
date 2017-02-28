@@ -29,49 +29,58 @@
             <nav class="navbar navbar-default">
               <div class="container-fluid">
                 <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
                   <a href="<? echo $path; ?>/week4/ch7" class="navbar-brand text-primary">Car Swap!</a>
                 </div>
-                <ul class="nav navbar-nav pull-right">
-                  <li class="navbar-text">
+
+                <div class="collapse navbar-collapse" id="collapse-1">
+                  <ul class="nav navbar-nav text-center">
+                    <li class="navbar-text">
+                      <?php
+                      if (isset($_SESSION['name'])) {
+                        echo 'Hello, ' . $_SESSION['name'];
+                      } else {
+                        echo 'Hello, Guest';
+                      }
+                      ?>
+                    </li>
+                    <li>
+                      <?php
+                      if (isset($_SESSION['name'])) {
+                        echo '<a href="index.php?controller=profile&action=index&id=' . $_SESSION['user_id'] . '">My Profile</a>';
+                      }
+                      ?>
+                    </li>
+                    <li>
+                      <?php
+                      if (isset($_SESSION['name'])) {
+                        echo '<a href="index.php?controller=survey&action=index&id=' . $_SESSION['user_id'] . '">Survey</a>';
+                      }
+                      ?>
+                    </li>
+                    <li>
+                      <?php
+                      if (isset($_SESSION['name'])) {
+                        echo '<a href="index.php?controller=match&action=index&id=' . $_SESSION['user_id'] . '">My Match</a>';
+                      }
+                      ?>
+                    </li>
                     <?php
                     if (isset($_SESSION['name'])) {
-                      echo 'Hello, ' . $_SESSION['name'];
+                      echo '<a class="btn btn-default navbar-btn"';
+                      echo 'href="' . $_SERVER['PHP_SELF'] . '?controller=login&action=logout">Log Out</a>';
                     } else {
-                      echo 'Hello, Guest';
+                      echo '<a class="btn btn-default navbar-btn"';
+                      echo 'href="' . $_SERVER['PHP_SELF'] . '?controller=login&action=index">Log In</a>';
                     }
                     ?>
-                  </li>
-                  <li>
-                    <?php
-                    if (isset($_SESSION['name'])) {
-                      echo '<a href="index.php?controller=profile&action=index&id=' . $_SESSION['user_id'] . '">My Profile</a>';
-                    }
-                    ?>
-                  </li>
-                  <li>
-                    <?php
-                    if (isset($_SESSION['name'])) {
-                      echo '<a href="index.php?controller=survey&action=index&id=' . $_SESSION['user_id'] . '">Survey</a>';
-                    }
-                    ?>
-                  </li>
-                  <li>
-                    <?php
-                    if (isset($_SESSION['name'])) {
-                      echo '<a href="index.php?controller=match&action=index&id=' . $_SESSION['user_id'] . '">My Match</a>';
-                    }
-                    ?>
-                  </li>
-                  <?php
-                  if (isset($_SESSION['name'])) {
-                    echo '<a class="btn btn-default navbar-btn"';
-                    echo 'href="' . $_SERVER['PHP_SELF'] . '?controller=login&action=logout">Log Out</a>';
-                  } else {
-                    echo '<a class="btn btn-default navbar-btn"';
-                    echo 'href="' . $_SERVER['PHP_SELF'] . '?controller=login&action=index">Log In</a>';
-                  }
-                  ?>
-                </ul>
+                  </ul>
+                </div>
               </div>
             </nav>
           </header>

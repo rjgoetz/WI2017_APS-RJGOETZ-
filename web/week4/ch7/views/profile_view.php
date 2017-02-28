@@ -5,7 +5,7 @@
       <img class="img-responsive" src="public/img/<?php echo $car->picture; ?>" alt="<?php echo $car->car; ?>">
     </div>
 
-    <div class="col-xs-6 col-md-4 col-md-offset-2">
+    <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-2">
       <h2>My Profile</h2>
       <form action="<?php echo $_SERVER['PHP_SELF']; ?>?controller=profile&amp;action=profile&amp;id=<?php echo $car->id; ?>" role="form" method="post" encytype="multipart/form-data">
         <div class="form-group">
@@ -84,7 +84,7 @@
       </form>
     </div>
 
-    <div class="col-xs-12 col-md-4">
+    <div class="col-xs-12 col-sm-6 col-md-4">
       <h2>Login Credentials</h2>
       <form action="<?php echo $_SERVER['PHP_SELF']; ?>?controller=profile&amp;action=credentials&amp;id=<?php echo $car->id; ?>" method="post" role="form">
         <div class="form-group">

@@ -2,7 +2,7 @@
   <h1><small class="text-primary">Meet <?php echo $car->name; ?></small></h1>
 
   <div class="row">
-    <div class="col-xs-12 col-xs-6">
+    <div class="col-xs-12 col-sm-6">
       <div class="thumbnail">
         <img src="<?php echo 'public/img/' . $car->picture; ?>" alt="<?php echo $car->car; ?>" class="img-responsive">
         <div class="caption">

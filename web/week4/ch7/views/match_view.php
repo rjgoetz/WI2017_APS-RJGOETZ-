@@ -14,15 +14,16 @@
       } else {
       ?>
       <div class="row">
-        <div class="col-xs-12 col-xs-6">
-          <p class="lead"><?php echo $car->name; ?> is the perfect match!</p>
+        <div class="col-xs-12 col-sm-6 col-sm-push-6">
+          <img class="img-responsive" src="public/img/<?php echo $car->picture; ?>" alt="<?php echo $car->car; ?>">
+        </div>
+        <div class="col-xs-12 col-sm-6 col-sm-pull-6">
+          <br>
+          <p class="lead"><b><?php echo $car->name; ?> is the perfect match!</b></p>
           <p><b>Owner: </b><?php echo $car->name; ?></p>
           <p><b>Joined: </b><?php echo $car->date; ?></p>
           <p><b>Location: </b><?php echo $car->city . ', ' . $car->state; ?></p><br>
           <a class="btn btn-default" href="<?php echo $_SERVER['PHP_SELF'] . '?controller=swapper&action=car&id=' . $car->id; ?>">View Profile >></a>
-        </div>
-        <div class="col-xs-12 col-xs-6">
-          <img class="img-responsive" src="public/img/<?php echo $car->picture; ?>" alt="<?php echo $car->car; ?>">
         </div>
       </div>
       <br>
