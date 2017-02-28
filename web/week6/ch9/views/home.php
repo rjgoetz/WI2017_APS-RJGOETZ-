@@ -4,7 +4,7 @@
       <div class="well">
         <p class="lead text-primary text-center">Your dream job is out there. Go find it!</p>
         <div class="row">
-          <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get" role="form">
               <div class="form-group">
                 <input type="hidden" name="controller" value="search">

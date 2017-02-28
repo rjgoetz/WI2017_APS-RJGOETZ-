@@ -28,11 +28,11 @@
         <div class="col-xs-12">
           <header class="page-header clearfix">
             <div class="row">
-              <div class="col-xs-10">
+              <div class="col-xs-12 col-sm-10">
                 <h1><a href="<?php echo $path ?>/week6/ch9">Developer Jobs</a></h1>
               </div>
-              <div class="col-xs-2">
-                <p class="register"><a href="<?php echo $path . '/week6/ch9/index.php?controller=register&action=index'; ?>">Register</a></p>
+              <div class="col-xs-12 col-sm-2">
+                <p class="register pull-right"><a href="<?php echo $path . '/week6/ch9/index.php?controller=register&action=index'; ?>">Register</a></p>
               </div>
             </div>
           </header>

@@ -5,7 +5,7 @@
       <p class="lead">Register with Developer Jobs and post your resume.</p>
 
       <div class="row">
-        <div class="col-xs-12 col-sm-9">
+        <div class="col-xs-12">
           <form action="<?php echo $_SERVER['PHP_SELF'] . '?controller=register&action=register'; ?>" method="post" role="form">
             <div class="form-group">
               <label for="firstname">First Name</label>
