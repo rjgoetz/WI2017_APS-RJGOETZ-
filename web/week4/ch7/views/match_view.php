@@ -35,28 +35,28 @@
         $count = 1;
         $category_count = array();
         $length = count($my_match[0]['category_name']);
+
         foreach ($my_match[0]['category_name'] as $key => $category) {
-          if ($key != 0) {
+          if ($key == $length - 1) {
+            $count++;
+            array_push($category_count, [$my_match[0]['category_name'][$key], $count]);
+          } elseif ($key != 0) {
             if ($category == $my_match[0]['category_name'][$key - 1]) {
               $count++;
-            } elseif ($length - 1 == $key) {
-              echo 'here';
-              array_push($category_count, [$my_match[0]['category_name'][$key], $count]);
             } else {
               array_push($category_count, [$my_match[0]['category_name'][$key - 1], $count]);
               $count = 1;
             }
           }
-      ?>
-
-        <p><b><?php echo $category; ?></b></p>
-
-
-      <?php
         }
-        var_dump($category_count);
+
+        require_once('views/bar-graph.php');
+
+        draw_bar_graph(480, 240, $category_count, 11, 'public/img/' . $car->id . '-mygraph.png');
       }
+
       ?>
+        <img src="public/img/<?php echo $car->id . '-mygraph.png'; ?>" alt="graph">
         </div>
       </div>
     </div>
