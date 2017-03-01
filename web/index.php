@@ -88,7 +88,7 @@
                         <a href="week4/ch7"><img src="img/ford_aerostar_xlt_blue_1990_a.jpg" alt="Ford Aerostar"></a>
                         <div class="caption">
                           <h3><a href="week4/ch7">Car Swap!</a></h3>
-                          <p><b>Week 4, 5 // Chapter 7, 8</b></p>
+                          <p><b>Week 4, 5 // Chapter 7, 8, 11</b></p>
                           <ul>
                             <li>Sign up on Car Swap! and swap your car with other car swappers</li>
                             <li>First project with MVC structure</li>
@@ -98,6 +98,7 @@
                             <li>Form messages (success, fail, etc.)</li>
                             <li>Database Normalization</li>
                             <li>SQL Aliases, INNER JOIN, AS, ON, USING</li>
+                            <li>Generate a bar-graph that models survey data.</li>
                           </ul>
                           <a href="week4/ch7" class="btn btn-default">View >></a>
                         </div>
