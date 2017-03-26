@@ -1,18 +1,17 @@
 # MCAD / APS IDM-6515 / SPRING 2017
-## Babysit - Web Application
+## Learn PHP and MVC Pattern
 
 ### Technologies:
 * Google Fonts
 * Bootstrap
 * HTML5
 * CSS + SASS
-* JavaScript and JQuery
+* JavaScript
 * PHP
-* Laravel
 * MySQL
 * Heroku
 * Atom
 * Google Developer Tools
 * Terminal
 
-In this studio class, I plan to learn PHP and MySQL by walking through the "Head First PHP & MySQL" book. Then I will dedicate a couple weeks for learning the Laravel framework. As a capstone project, I would like to create a "Babysit" application that helps connect parents with babysitters in their area.
+In this studio class, I plan to learn PHP, MySQL, and MVC architecture. My main resource is the "Head First PHP & MySQL" book. I will also learn object oriented PHP and the MVC pattern by watching / reading online resources.
