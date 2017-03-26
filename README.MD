@@ -15,3 +15,5 @@
 * Terminal
 
 In this studio class, I plan to learn PHP, MySQL, and MVC architecture. My main resource is the "Head First PHP & MySQL" book. I will also learn object oriented PHP and the MVC pattern by watching / reading online resources.
+
+On [Heroku](https://desolate-tundra-33026.herokuapp.com/)
